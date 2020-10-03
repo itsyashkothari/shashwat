@@ -11,11 +11,11 @@ lli pages(vector<lli> &a, int m, lli l, lli r) {
         //cout<<"mid: "<<mid<<endl;
         int no=1;
         lli sum=0;
-        for(int i=0; i<a.size(); i++) {
-            if(sum+a[i]<=mid) sum+=a[i];
+        for(int &x:a) {
+            if(sum+x<=mid) sum+=x;
             else {
                 no++;
-                sum=a[i];
+                sum=x;
             }
         }
             if(no>m) l = mid+1;
@@ -30,7 +30,7 @@ int main() {
     cin>>n>>m;
     vector<lli> a(n);
     lli sum=0;
-    for(int i=0; i<n; i++) {cin>>a[i]; sum+=a[i];}
+    for(int &x:a) {cin>>x; sum+=x;}
     cout<<pages(a, m, 0, sum);
     return 0;
 }
